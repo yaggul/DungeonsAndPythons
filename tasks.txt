@@ -1,5 +1,5 @@
 hero Tanq
-enemy Mitko
+enemies Mitko
 weapons Tanq
 spells Mitko
 map+treasures
