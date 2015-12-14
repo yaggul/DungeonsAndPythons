@@ -1,0 +1,7 @@
+hero Tanq
+enemy Mitko
+weapons Tanq
+spells Mitko
+map+treasures
+fights
+
