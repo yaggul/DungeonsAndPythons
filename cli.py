@@ -12,10 +12,20 @@ class CLI:
             }
 
     def _hello_message(self):
-        return 'Wellcome to Dungeon&Pythons.\nType <help> for list of game commands'
+        return 'Wellcome to Dungeon&Pythons.\nType <help> for list of supported game commands commands'
 
     def _help_message(self, *args):
-        return 'Here goes the commands'
+        return 'List of supported commands:\n\
+        print_map - Prints the map of the current level;\n\
+        up - moves hero UP on the map;\n\
+        down - moves hero DOWN on the map;\n\
+        left - moves hero LEFT on the map;\n\
+        right - moves hero RIGHT on the map;\n\
+        spawn - puts the Hero st the starting "S" point on the map and respawns Hero on last save lovation\n\
+        You need to spawn to begin the game;\n\
+        help - prints this message;\n\
+        pick_spell - picks a random spell for testing purposes;\n\
+        quit - quits the game.'
 
     def start(self):
         print(self._hello_message())
@@ -29,4 +39,4 @@ class CLI:
                     break
                 print(self.commands[command][0](self.commands[command][1]))
             except:
-                print('Unknown command. Type <help> for list of commands.')
+                print('Unknown command. Type <help> for list of supported commands.')
