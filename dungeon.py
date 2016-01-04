@@ -1,4 +1,5 @@
 from copy import deepcopy
+from random import choice
 
 
 class Dungeon:
@@ -13,6 +14,7 @@ class Dungeon:
             self.previous_location = []
             self.next_location = []
             self.map_entrance = []
+            self.treasure_items = ['health_potion', 'mana_potion', 'weapon', 'spell']
 
     def gen_map_matrix(self):
         b = []
@@ -151,3 +153,6 @@ class Dungeon:
                 else:
                     pass
         return False
+
+    def pick_item(self, *args):
+        return choice(self.treasure_items)
