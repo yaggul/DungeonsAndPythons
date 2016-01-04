@@ -1,0 +1,10 @@
+{"Manas":
+    [
+        {"name":"small_mana_potion",
+                "mana":10},
+        {"name":"medium_mana_potion",
+                "mana":20},
+        {"name":"large_mana_potion",
+                "mana":30}
+    ]
+}
