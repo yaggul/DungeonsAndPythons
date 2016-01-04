@@ -6,6 +6,8 @@ from dungeon import Dungeon
 from enemies import Enemy
 from spell_loader import SpellLoader
 from spells import Spell
+from weapon_loader import WeaponLoader
+from weapon import Weapon
 
 
 def main():
@@ -15,7 +17,9 @@ def main():
     gmap.find_map_start()
     sp = SpellLoader()
     sp.load_spells()
-    interface = CLI(gmap, sp, Enemy)
+    wp = WeaponLoader()
+    wp.load_weapons()
+    interface = CLI(gmap, sp, wp, Enemy)
     interface.start()
 
 

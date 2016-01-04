@@ -5,10 +5,11 @@ class CLI:
             'down': [args[0].move_hero, 'down'],
             'left': [args[0].move_hero, 'left'],
             'right': [args[0].move_hero, 'right'],
-            'print_map': [args[0].print_map, ''],
+            'map': [args[0].print_map, ''],
             'spawn': [args[0].spawn, args[0].map_entrance],
             'help': [self._help_message, ''],
-            'pick_spell': [args[1].pick_spell, '']
+            'pick_spell': [args[1].pick_spell, ''],
+            'pick_weapon': [args[2].pick_weapon, '']
             }
 
     def _hello_message(self):
