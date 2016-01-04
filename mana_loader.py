@@ -9,7 +9,7 @@ class ManaLoader:
     def load_manas(self):
         with open('./manas.json', 'r') as manain:
             mana_data = json.load(manain)
-        self._manas = mana_data['manas']
+        self._manas = mana_data['Manas']
 
     def pick_mana(self, *args):
         return self._manas[choice([x for x in range(0, len(self._manas))])]
@@ -30,7 +30,7 @@ def main():
     # picked_spell = sp.pick_spell()
     m = Mana(**mp.pick_mana())
     return m
-
+    #print(m)
 
 if __name__ == '__main__':
     main()

@@ -9,7 +9,9 @@ class CLI:
             'spawn': [args[0].spawn, args[0].map_entrance],
             'help': [self._help_message, ''],
             'pick_spell': [args[1].pick_spell, ''],
-            'pick_weapon': [args[2].pick_weapon, '']
+            'pick_weapon': [args[2].pick_weapon, ''],
+            'pick_health': [args[3].pick_health, ''],
+            'pick_mana': [args[4].pick_mana, '']
             }
 
     def _hello_message(self):

@@ -8,7 +8,8 @@ from spell_loader import SpellLoader
 from spells import Spell
 from weapon_loader import WeaponLoader
 from weapon import Weapon
-
+from health_loader import *
+from mana_loader import *
 
 def main():
     gmap = Dungeon('level2.txt')
@@ -19,7 +20,11 @@ def main():
     sp.load_spells()
     wp = WeaponLoader()
     wp.load_weapons()
-    interface = CLI(gmap, sp, wp, Enemy)
+    hp = HealthLoader()
+    hp.load_healths()
+    mp = ManaLoader()
+    mp.load_manas()
+    interface = CLI(gmap, sp, wp, hp, mp, Enemy)
     interface.start()
 
 

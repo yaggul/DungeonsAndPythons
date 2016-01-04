@@ -1,0 +1,10 @@
+{"Healths":
+    [
+        {"name":"small_healt_potion",
+                "health":10},
+        {"name":"medium_health_potion",
+                "health":20},
+        {"name":"large_health_potion",
+                "health":30}
+    ]
+}
