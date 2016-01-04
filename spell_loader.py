@@ -8,8 +8,8 @@ class SpellLoader:
 
     def load_spells(self):
         with open('./spells.json', 'r') as spellin:
-            data = json.load(spellin)
-        self._spells = data['Spells']
+            spell_data = json.load(spellin)
+        self._spells = spell_data['Spells']
 
     def pick_spell(self, *args):
         return self._spells[choice([x for x in range(0, len(self._spells))])]

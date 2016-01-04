@@ -1,0 +1,10 @@
+{"Spells":
+    [
+        {"name":"Executor_mace",
+                "damage":50,},
+        {"name":"Death_cursed_scythe",
+                "damage":30,},
+        {"name":"Armagedons_Blade",
+                "damage":70}
+    ]
+}
