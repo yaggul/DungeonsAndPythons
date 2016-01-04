@@ -1,15 +1,16 @@
-from random import randint
-import json
-from random import choice
+# from random import randint
+# import json
+# from random import choice
 from cli import CLI
 from dungeon import Dungeon
 from enemies import Enemy
 from spell_loader import SpellLoader
-from spells import Spell
+# from spells import Spell
 from weapon_loader import WeaponLoader
-from weapon import Weapon
+# from weapon import Weapon
 from health_loader import *
 from mana_loader import *
+
 
 def main():
     gmap = Dungeon('level2.txt')
