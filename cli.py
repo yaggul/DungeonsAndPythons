@@ -19,6 +19,7 @@ class CLI:
             'pick_health': [args[3].pick_health, ''],
             'pick_mana': [args[4].pick_mana, '']
             }
+
         self.treasure_commands = {}
         self.fight_commands = {}
 
