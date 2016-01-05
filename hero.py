@@ -95,3 +95,16 @@ class Hero:
             self.inventory.update({'s': item})
         return '{} is collected into inventory'.format(item.name)
 
+    def drop(self,item):
+        if item in self.inventory.keys():
+            if self.armed == self.inventory[item].name:
+                self.inventory.pop(item)
+                self.armed = ''
+                self.damage = 0
+                self.distance = 1
+                self.mana_cost = 0
+            else:
+                self.inventory.pop(item)
+        else:
+            pass
+
