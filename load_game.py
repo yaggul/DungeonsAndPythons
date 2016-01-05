@@ -1,0 +1,22 @@
+''' Hero, Dungeon'''
+
+
+class LoadGame:
+    def __init__(self):
+        self.hero_parameters = {}
+        self.levels = {'1': 'level1.txt', '2': 'level2.txt', '3': 'level3.txt', '4': 'level4.txt'}
+        self.str_level = '\n 1: lev1\n 2: lev2\n 3: lev3\n 4: lev4'
+        self.level_to_load = ''
+
+        def create_hero(self):
+            name = input('Please input <Hero> name: ')
+            title = input('Please input <Hero>tittle: ')
+            self.hero_parameters = {'name': name, 'title': title}
+
+        def choose_level(self):
+            print(self.str_level)
+            while self.level_to_load not in self.levels.keys():
+                self.level_to_load = input('Please choose level number from the list above: ')
+
+        create_hero(self)
+        choose_level(self)
