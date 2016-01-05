@@ -1,31 +1,29 @@
 # from random import randint
 # import json
 # from random import choice
+# from spells import Spell
+# from weapon import Weapon
+from load_game import LoadGame
 from cli import CLI
 from dungeon import Dungeon
+from health_loader import Health
+from mana_loader import Mana
+from weapon_loader import Weapon
+from spell_loader import Spell
+from hero import Hero
 from enemies import Enemy
-from spell_loader import SpellLoader
-# from spells import Spell
-from weapon_loader import WeaponLoader
-# from weapon import Weapon
-from health_loader import *
-from mana_loader import *
+from treasures import Treasure
 
 
 def main():
-    gmap = Dungeon('level2.txt')
+    lg = LoadGame()
+    gmap = Dungeon(lg.level_to_load)
     gmap.gen_map_matrix()
     gmap.gen_map_string()
     gmap.find_map_start()
-    sp = SpellLoader()
-    sp.load_spells()
-    wp = WeaponLoader()
-    wp.load_weapons()
-    hp = HealthLoader()
-    hp.load_healths()
-    mp = ManaLoader()
-    mp.load_manas()
-    interface = CLI(gmap, sp, wp, hp, mp, ,Hero, Enemy)
+    hero = Hero(**lg.hero_parameters)
+    tr = Treasure(Health, Mana, Weapon, Spell, hero)
+    interface = CLI(gmap, hero, Enemy, tr)
     interface.start()
 
 

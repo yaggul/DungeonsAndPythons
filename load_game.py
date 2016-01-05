@@ -9,8 +9,8 @@ class LoadGame:
         self.level_to_load = ''
 
         def create_hero(self):
-            name = input('Please input <Hero> name: ')
-            title = input('Please input <Hero>tittle: ')
+            name = input('Please input Hero <Name>: ')
+            title = input('Please input Hero <Tittle>: ')
             self.hero_parameters = {'name': name, 'title': title}
 
         def choose_level(self):
@@ -18,5 +18,9 @@ class LoadGame:
             while self.level_to_load not in self.levels.keys():
                 self.level_to_load = input('Please choose level number from the list above: ')
 
+        def wellcome(self):
+            print('Wellcome to Dungeon&Pythons')
+
+        wellcome(self)
         create_hero(self)
         choose_level(self)

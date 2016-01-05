@@ -26,16 +26,3 @@ class Health:
 
     def __repr__(self):
         return 'health name={}, health={}'.format(self.picked_health['name'], self.picked_health['health'])
-
-'''
-def main():
-    hp = HealthLoader()
-    hp.load_healths()
-    # picked_spell = sp.pick_spell()
-    h = Health(**hp.pick_health())
-    #return h
-    print(h)
-
-if __name__ == '__main__':
-    main()
-'''

@@ -3,9 +3,9 @@ from random import randint
 
 
 class Hero:
-    def __init__(self, name, title, health=100, mana=100):
-        self.name = name
-        self.title = title
+    def __init__(self, health=100, mana=100, **kwargs):
+        self.name = kwargs['name']
+        self.title = kwargs['title']
         self.health = health
         self.mana = mana
         self.inventory = {}
@@ -83,6 +83,10 @@ class Hero:
                 self.damage = self.inventory[item].damage
                 self.distance = self.inventory[item].cast_range
                 self.mana_cost = self.inventory[item].mana_cost
+            else:
+                pass
+        else:
+            pass
 
     def collect(self, item):
         if isinstance(item, Health):
@@ -108,3 +112,5 @@ class Hero:
         else:
             pass
 
+    def inventory(self):
+        return self.inventory

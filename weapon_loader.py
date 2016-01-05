@@ -24,16 +24,3 @@ class Weapon:
 
     def __repr__(self):
         return 'weapon name={}, damage={}'.format(self.picked_weapon['name'], self.picked_weapon['damage'])
-
-'''
-def main():
-    wp = WeaponLoader()
-    wp.load_weapons()
-    # picked_spell = sp.pick_spell()
-    w = Weapon(**wp.pick_weapon())
-    return w
-
-
-if __name__ == '__main__':
-    main()
-'''

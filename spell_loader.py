@@ -26,16 +26,3 @@ cast_range={}'.format(self.picked_spell['name'], self.picked_spell['damage'], se
     def __repr__(self):
         return 'spell name={}, damage={}, mana_cost={}, \
 cast_range={}'.format(self.picked_spell['name'], self.picked_spell['damage'], self.picked_spell['mana_cost'], self.picked_spell['cast_range'])
-
-'''
-def main():
-    sp = SpellLoader()
-    sp.load_spells()
-    # picked_spell = sp.pick_spell()
-    s = Spell(**sp.pick_spell())
-    return s
-
-
-if __name__ == '__main__':
-    main()
-'''

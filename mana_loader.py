@@ -24,16 +24,3 @@ class Mana:
 
     def __repr__(self):
         return 'mana name={}, mana={}'.format(self.picked_mana['name'], self.picked_mana['mana'])
-
-'''
-def main():
-    mp = ManaLoader()
-    mp.load_manas()
-    # picked_spell = sp.pick_spell()
-    m = Mana(**mp.pick_mana())
-    return m
-    #print(m)
-
-if __name__ == '__main__':
-    main()
-'''
