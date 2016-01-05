@@ -2,33 +2,30 @@ import json
 from random import choice
 
 
-class SpellLoader:
+class Spell:
     def __init__(self):
         self._spells = []
+        self.picked_spell = {}
 
-    def load_spells(self):
-        with open('./spells.json', 'r') as spellin:
-            spell_data = json.load(spellin)
-        self._spells = spell_data['Spells']
+        def load_spells(self):
+            with open('./spells.json', 'r') as spellin:
+                spell_data = json.load(spellin)
+            self._spells = spell_data['Spells']
 
-    def pick_spell(self, *args):
-        return self._spells[choice([x for x in range(0, len(self._spells))])]
+        load_spells(self)
 
+        def pick_spell(self, *args):
+            self.picked_spell = self._spells[choice([x for x in range(0, len(self._spells))])]
 
-class Spell:
-    def __init__(self, **kwargs):
-        self.name = kwargs['name']
-        self.damage = kwargs['damage']
-        self.mana_cost = kwargs['mana_cost']
-        self.cast_range = kwargs['cast_range']
+        pick_spell(self)
 
     def __str__(self):
-        return ' name={}, damage={}, mana_cost={}, \
-cast_range={}'.format(self.name, self.damage, self.mana_cost, self.cast_range)
+        return 'spell name={}, damage={}, mana_cost={}, \
+cast_range={}'.format(self.picked_spell['name'], self.picked_spell['damage'], self.picked_spell['mana_cost'], self.picked_spell['cast_range'])
 
     def __repr__(self):
-        return 'spell - name={}, damage={}, mana_cost={}, \
-cast_range={}'.format(self.name, self.damage, self.mana_cost, self.cast_range)
+        return 'spell name={}, damage={}, mana_cost={}, \
+cast_range={}'.format(self.picked_spell['name'], self.picked_spell['damage'], self.picked_spell['mana_cost'], self.picked_spell['cast_range'])
 
 '''
 def main():

@@ -2,29 +2,28 @@ import json
 from random import choice
 
 
-class WeaponLoader:
+class Weapon:
     def __init__(self):
         self._weapons = []
+        self.picked_weapon = {}
 
-    def load_weapons(self):
-        with open('./weapons.json', 'r') as weaponin:
-            weapon_data = json.load(weaponin)
-        self._weapons = weapon_data['Weapons']
+        def load_weapons(self):
+            with open('./weapons.json', 'r') as weaponin:
+                weapon_data = json.load(weaponin)
+            self._weapons = weapon_data['Weapons']
 
-    def pick_weapon(self, *args):
-        return self._weapons[choice([x for x in range(0, len(self._weapons))])]
+        load_weapons(self)
 
+        def pick_weapon(self, *args):
+            self.picked_weapon = self._weapons[choice([x for x in range(0, len(self._weapons))])]
 
-class Weapon:
-    def __init__(self, **kwargs):
-        self.name = kwargs['name']
-        self.damage = kwargs['damage']
+        pick_weapon(self)
 
     def __str__(self):
-        return 'name={}, damage={}'.format(self.name, self.damage)
+        return 'weapon name={}, damage={}'.format(self.picked_weapon['name'], self.picked_weapon['damage'])
 
     def __repr__(self):
-        return 'weapon name={}, damage={}'.format(self.name, self.damage)
+        return 'weapon name={}, damage={}'.format(self.picked_weapon['name'], self.picked_weapon['damage'])
 
 '''
 def main():

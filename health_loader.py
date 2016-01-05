@@ -5,7 +5,7 @@ from random import choice
 class Health:
     def __init__(self):
         self._healths = []
-        self.picked_spell = {}
+        self.picked_health = {}
         # self.name = kwargs['name']
         # self.health = kwargs['health']
 
@@ -16,14 +16,16 @@ class Health:
 
         load_healths(self)
 
-    def pick_health(self):
-        return self._healths[choice([x for x in range(0, len(self._healths))])]
+        def pick_health(self):
+            self.picked_health = self._healths[choice([x for x in range(0, len(self._healths))])]
+
+        pick_health(self)
 
     def __str__(self):
-        return 'name={}, health={}'.format(self.picked_spell['name'], self.picked_spell['health'])
+        return 'health name={}, health={}'.format(self.picked_health['name'], self.picked_health['health'])
 
     def __repr__(self):
-        return 'name={}, health={}'.format(self.picked_spell['name'], self.picked_spell['health'])
+        return 'health name={}, health={}'.format(self.picked_health['name'], self.picked_health['health'])
 
 '''
 def main():
