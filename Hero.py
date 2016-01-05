@@ -63,7 +63,7 @@ class Hero:
 	def attack(self, by, weapon, spell):
 		if by == "weapon":
 			return weapon.get_damage()
-       	if by == "spell":
-        	return spell.get_damage()
+       		if by == "spell":
+        		return spell.get_damage()
 
 
