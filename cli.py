@@ -13,6 +13,8 @@ class CLI:
             'pick_health': [args[3].pick_health, ''],
             'pick_mana': [args[4].pick_mana, '']
             }
+        self.treasure_commands = {}
+        self.fight_commands = {}
 
     def _hello_message(self):
         return 'Wellcome to Dungeon&Pythons.\nType <help> for list of supported game commands commands'
@@ -34,7 +36,7 @@ class CLI:
         print(self._hello_message())
 
         while True:
-            console_input = input(">>> ")
+            console_input = input("move > ")
             try:
                 text = console_input.split()
                 command = text[0]
@@ -43,3 +45,18 @@ class CLI:
                 print(self.commands[command][0](self.commands[command][1]))
             except:
                 print('Unknown command. Type <help> for list of supported commands.')
+
+    def treasure(self):
+        self.tr_commands = {
+            'enter': [],
+            'take': [],
+            'leave': [],
+            }
+
+    def fight(self):
+        self.fight_commands = {
+            'attack': [],
+            'inventory': [],
+            'equip': [],
+            'flee': [],
+        }

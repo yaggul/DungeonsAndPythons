@@ -21,9 +21,12 @@ class Mana:
         self.mana = kwargs['mana']
 
     def __str__(self):
-        return ' name={}, mana={}'.format(self.name, self.mana)
+        return 'name={}, mana={}'.format(self.name, self.mana)
 
+    def __repr__(self):
+        return 'mana name={}, mana={}'.format(self.name, self.mana)
 
+'''
 def main():
     mp = ManaLoader()
     mp.load_manas()
@@ -34,4 +37,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
+'''

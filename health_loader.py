@@ -21,9 +21,12 @@ class Health:
         self.health = kwargs['health']
 
     def __str__(self):
-        return ' name={}, health={}'.format(self.name, self.health)
+        return 'name={}, health={}'.format(self.name, self.health)
 
+    def __repr__(self):
+        return 'health name={}, health={}'.format(self.name, self.health)
 
+'''
 def main():
     hp = HealthLoader()
     hp.load_healths()
@@ -34,4 +37,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
+'''
