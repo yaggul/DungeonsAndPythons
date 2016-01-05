@@ -66,21 +66,4 @@ class Hero:
        	if by == "spell":
         	return spell.get_damage()
 
-h = Hero(name="Bron", title="Dragonslayer", health=100, mana=100, mana_regeneration_rate=2)
-#print(h.know_as())
-#print(h.get_health())
-#print(h.get_mana())
-#print(h.is_alive())
-#print(h.can_cast())
-h.take_damage(10)
-print(h.get_health())
-h.take_healing(5)
-print(h.get_health())
-#h.take_mana(1)
-w = Weapons("axe", 20)
-s = Spell("name", 5, 5, 5)
-h.equip(w)
-h.learn(s)
-print(h.attack("weapon", w, s))
-#h.take_healing(5)
-#print(h.get_health())
+
