@@ -25,7 +25,7 @@ def main():
     hp.load_healths()
     mp = ManaLoader()
     mp.load_manas()
-    interface = CLI(gmap, sp, wp, hp, mp, Enemy)
+    interface = CLI(gmap, sp, wp, hp, mp, ,Hero, Enemy)
     interface.start()
 
 

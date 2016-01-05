@@ -15,6 +15,7 @@ class Dungeon:
             self.next_location = []
             self.map_entrance = []
             self.treasure_items = ['health_potion', 'mana_potion', 'weapon', 'spell']
+            self.respawn_location = []
 
     def gen_map_matrix(self):
         b = []
@@ -149,6 +150,7 @@ class Dungeon:
             for j in i:
                 if j == 'S':
                     self.map_entrance = [self.map_matrix.index(i), i.index(j)]
+                    self.respawn_location = [self.map_matrix.index(i), i.index(j)]
                     return True
                 else:
                     pass
@@ -156,3 +158,6 @@ class Dungeon:
 
     def pick_item(self, *args):
         return choice(self.treasure_items)
+
+    def save_game(self):
+        self.respawn_location = [self.y_coord, self.x_coord, self.level]

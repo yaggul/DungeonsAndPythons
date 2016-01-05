@@ -1,5 +1,11 @@
 class CLI:
     def __init__(self, *args):
+        self.levels = {
+            '1': 'level1.txt',
+            '2': 'level2.txt',
+            '3': 'level3.txt',
+            '4': 'level4.txt'}
+
         self.commands = {
             'up': [args[0].move_hero, 'up'],
             'down': [args[0].move_hero, 'down'],
@@ -16,6 +22,12 @@ class CLI:
         self.treasure_commands = {}
         self.fight_commands = {}
 
+        self.load_game_commands = {
+        'create_hero': [],
+        'choose_level': [],
+        'start_game': []
+        }
+
     def _hello_message(self):
         return 'Wellcome to Dungeon&Pythons.\nType <help> for list of supported game commands commands'
 
@@ -31,6 +43,9 @@ class CLI:
         help - prints this message;\n\
         pick_spell - picks a random spell for testing purposes;\n\
         quit - quits the game.'
+
+    def load_game(self):
+        pass
 
     def start(self):
         print(self._hello_message())
@@ -49,7 +64,7 @@ class CLI:
     def treasure(self):
         self.tr_commands = {
             'enter': [],
-            'take': [],
+            'collect': [],
             'leave': [],
             }
 
