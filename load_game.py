@@ -5,7 +5,7 @@ class LoadGame:
     def __init__(self):
         self.hero_parameters = {}
         self.levels = {'1': 'level1.txt', '2': 'level2.txt', '3': 'level3.txt', '4': 'level4.txt'}
-        self.str_level = '\n 1: level1\n 2: level22\n 3: level33\n 4: level4'
+        self.str_level = '\n 1: level1\n 2: level2\n 3: level3\n 4: level4'
         self.level_to_load = ''
 
         def create_hero(self):

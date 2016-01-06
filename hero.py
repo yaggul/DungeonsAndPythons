@@ -13,8 +13,8 @@ class Hero:
         self.health = health
         self.mana = mana
         self.inventory = {}
-        self.armed = ''
-        self.damage = 0
+        self.armed = 'Tremor'
+        self.damage = 20
         self.distance = 1
         self.mana_cost = 0
 

@@ -47,17 +47,16 @@ class CLI:
             self.text = console_input.split()
             print(self.text)
             command = self.text[0]
-
-            if command == 'quit':
-                break
-            else:
-                if len(self.text) == 1:
-                    parameter = self.commands[command][1]
-                elif command == 'collect':
-                    parameter = self.fgmap.spawned_items[self.text[1]]
-                    print(parameter)
+            try:
+                if command == 'quit':
+                    break
                 else:
-                    parameter = self.text[1:]
-            print(self.commands[command][0](parameter))
-            # except:
-            #    print('Unknown command. Type <help> for list of supported commands.')
+                    if len(self.text) == 1:
+                        parameter = self.commands[command][1]
+                    elif command == 'collect':
+                        parameter = self.fgmap.spawned_items[self.text[1]]
+                    else:
+                        parameter = self.text[1:]
+                print(self.commands[command][0](parameter))
+            except:
+                print('Unknown command. Type <help> for list of supported commands.')
