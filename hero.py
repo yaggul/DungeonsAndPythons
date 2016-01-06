@@ -71,22 +71,22 @@ class Hero:
     def redeem(self):
         return randint(1, self.damage)
 
-    def equip(self, item):
+    def equip(self, item, *ars):
         # if item in self.inventory.keys():
-        if isinstance(self.inventory[item], Health):
-            self.take_healing(self.inventory[item].health)
-        elif isinstance(self.inventory[item], Mana):
-            self.take_mana(self.inventory[item].mana)
-        elif isinstance(self.inventory[item], Weapon):
-            self.armed = self.inventory[item].name
-            self.damage = self.inventory[item].damage
+        if isinstance(item, Health):
+            self.take_healing(item.health)
+        elif isinstance(item, Mana):
+            self.take_mana(item.mana)
+        elif isinstance(item, Weapon):
+            self.armed = item.name
+            self.damage = item.damage
             self.mana_cost = 0
             self.distance = 1
-        elif isinstance(self.inventory[item], Spell):
-            self.armed = self.inventory[item].name
-            self.damage = self.inventory[item].damage
-            self.distance = self.inventory[item].cast_range
-            self.mana_cost = self.inventory[item].mana_cost
+        elif isinstance(item, Spell):
+            self.armed = item.name
+            self.damage = item.damage
+            self.distance = item.cast_range
+            self.mana_cost = item.mana_cost
         else:
             pass
         # else:

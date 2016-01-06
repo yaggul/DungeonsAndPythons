@@ -7,6 +7,7 @@ class CLI:
     def __init__(self, *args):
         self.text = []
         self.fgmap = args[0]
+        self.fhero = args[1]
         self.commands = {
             'up': [args[0].move_hero, 'up'],
             'down': [args[0].move_hero, 'down'],
@@ -32,10 +33,13 @@ class CLI:
         down - moves hero DOWN on the map;\n\
         left - moves hero LEFT on the map;\n\
         right - moves hero RIGHT on the map;\n\
-        spawn - puts the Hero st the starting "S" point on the map and respawns Hero on last save location\n\
-        You need to spawn to begin the game;\n\
+        spawn - puts the Hero st the starting "S" point on the map and \n\
+        respawns Hero on last save location;\n\
+        You need to RUN  <spawn> to begin the game;\n\
         help - prints this message;\n\
-        pick_spell - picks a random spell for testing purposes;\n\
+        collect <h | m | w | s > - collects item from treasury into the Hero inventory;\n\
+        equip <h | m | w | s > - equips Hero with item from the INVENTORY;\n\
+        inventory - shows the contents of the Hero inventory;\n\
         quit - quits the game.'
 
     def start(self):
@@ -43,11 +47,9 @@ class CLI:
 
         while True:
             console_input = input(">>> ")
-            # try:
-            self.text = console_input.split()
-            print(self.text)
-            command = self.text[0]
             try:
+                self.text = console_input.split()
+                command = self.text[0]
                 if command == 'quit':
                     break
                 else:
@@ -55,8 +57,12 @@ class CLI:
                         parameter = self.commands[command][1]
                     elif command == 'collect':
                         parameter = self.fgmap.spawned_items[self.text[1]]
+                    elif command == 'equip':
+                        command = self.fhero.inventory[self.text[1]]
                     else:
                         parameter = self.text[1:]
                 print(self.commands[command][0](parameter))
-            except:
-                print('Unknown command. Type <help> for list of supported commands.')
+            #except UnkownCommandException:
+            #    print('Unknown command. Type <help> for list of supported commands.')
+            except Exception as e:
+                print(e)

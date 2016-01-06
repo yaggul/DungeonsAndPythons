@@ -25,6 +25,8 @@ class Mana:
             self.name = self.picked_mana['name']
             self.mana = self.picked_mana['mana']
 
+        gen_parameters(self)
+
     def __str__(self):
         return 'mana name={}, mana={}'.format(self.picked_mana['name'], self.picked_mana['mana'])
 

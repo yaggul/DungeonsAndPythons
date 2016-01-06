@@ -29,6 +29,8 @@ class Spell:
             self.mana_cost = self.picked_spell['mana_cost']
             self.cast_range = self.picked_spell['cast_range']
 
+        gen_parameters(self)
+
     def __str__(self):
         return 'spell name={}, damage={}, mana_cost={}, \
 cast_range={}'.format(self.picked_spell['name'], self.picked_spell['damage'], self.picked_spell['mana_cost'], self.picked_spell['cast_range'])
