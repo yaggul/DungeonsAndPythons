@@ -6,6 +6,8 @@ class Mana:
     def __init__(self):
         self._manas = []
         self.picked_mana = {}
+        self.name = ''
+        self.mana = ''
 
         def load_manas(self):
             with open('./manas.json', 'r') as manain:
@@ -18,6 +20,10 @@ class Mana:
             self.picked_mana = self._manas[choice([x for x in range(0, len(self._manas))])]
 
         pick_mana(self)
+
+        def gen_parameters(self):
+            self.name = self.picked_mana['name']
+            self.mana = self.picked_mana['mana']
 
     def __str__(self):
         return 'mana name={}, mana={}'.format(self.picked_mana['name'], self.picked_mana['mana'])

@@ -4,7 +4,7 @@ from random import choice
 
 class Dungeon:
 
-    def __init__(self, map_level_file):
+    def __init__(self, map_level_file, *args):
             self.level = map_level_file
             self.x_coord = 0
             self.y_coord = 0
@@ -14,7 +14,9 @@ class Dungeon:
             self.previous_location = []
             self.next_location = []
             self.map_entrance = []
-            self.treasure_items = ['health_potion', 'mana_potion', 'weapon', 'spell']
+            self.treasure_items = ['h', 'm', 'w', 's']
+            self.spawned_items = {}
+            self.c_items = args[:]
             self.respawn_location = []
 
     def gen_map_matrix(self):
@@ -44,7 +46,12 @@ class Dungeon:
                 self.clear_trace(*self.previous_location)
                 self.move()
                 self.previous_location = deepcopy(self.next_location)
-                return True
+                if self.previous_location[2] == 'T':
+                    self.spawn_item(self.pick_item())
+                    return 'You have found a treasure. Type <check_items>\n\
+                        to see whats in front of you'
+                else:
+                    return True
             else:
                 return False
         elif direction == 'down':
@@ -52,7 +59,12 @@ class Dungeon:
                 self.clear_trace(*self.previous_location)
                 self.move()
                 self.previous_location = deepcopy(self.next_location)
-                return True
+                if self.previous_location[2] == 'T':
+                    self.spawn_item(self.pick_item())
+                    return 'You have found a treasure. Type <check_items>\n\
+                        to see whats in front of you'
+                else:
+                    return True
             else:
                 return False
         elif direction == 'left':
@@ -60,7 +72,12 @@ class Dungeon:
                 self.clear_trace(*self.previous_location)
                 self.move()
                 self.previous_location = deepcopy(self.next_location)
-                return True
+                if self.previous_location[2] == 'T':
+                    self.spawn_item(self.pick_item())
+                    return 'You have found a treasure. Type <check_items>\n\
+                        to see whats in front of you'
+                else:
+                    return True
             else:
                 return False
         elif direction == 'right':
@@ -68,7 +85,12 @@ class Dungeon:
                 self.clear_trace(*self.previous_location)
                 self.move()
                 self.previous_location = deepcopy(self.next_location)
-                return True
+                if self.previous_location[2] == 'T':
+                    self.spawn_item(self.pick_item())
+                    return 'You have found a treasure. Type <check_items>\n\
+                        to see whats in front of you'
+                else:
+                    return True
             else:
                 return False
 
@@ -156,8 +178,26 @@ class Dungeon:
                     pass
         return False
 
+    def save_game(self):
+        self.respawn_location = [self.y_coord, self.x_coord, self.level]
+
+# treasure methods
     def pick_item(self, *args):
         return choice(self.treasure_items)
 
-    def save_game(self):
-        self.respawn_location = [self.y_coord, self.x_coord, self.level]
+    def spawn_item(self, item):
+        if item == 'h':
+            h = self.c_items[0]()
+            self.spawned_items.update({'h': h})
+        elif item == 'm':
+            m = self.c_items[1]()
+            self.spawned_items.update({'m': m})
+        elif item == 'w':
+            w = self.c_items[2]()
+            self.spawned_items.update({'w': w})
+        elif item == 's':
+            s = self.c_items[3]()
+            self.spawned_items.update({'s': s})
+
+    def check_items(self, *args):
+        return self.spawned_items

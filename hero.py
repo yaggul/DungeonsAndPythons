@@ -1,9 +1,13 @@
 # from enemies import Enemy
 from random import randint
+from health_loader import Health
+from mana_loader import Mana
+from weapon_loader import Weapon
+from spell_loader import Spell
 
 
 class Hero:
-    def __init__(self, health=100, mana=100, **kwargs):
+    def __init__(self, health=100, mana=100, *args, **kwargs):
         self.name = kwargs['name']
         self.title = kwargs['title']
         self.health = health
@@ -68,38 +72,43 @@ class Hero:
         return randint(1, self.damage)
 
     def equip(self, item):
-        if item in self.inventory.keys():
-            if isinstance(self.inventory[item], Health):
-                self.take_healing(self.inventory[item].health)
-            elif isinstance(self.inventory[item], Mana):
-                self.take_mana(self.inventory[item].mana)
-            elif isinstance(self.inventory[item], Weapon):
-                self.armed = self.inventory[item].name
-                self.damage = self.inventory[item].damage
-                self.mana_cost = 0
-                self.distance = 1
-            elif isinstance(self.inventory[item], Spell):
-                self.armed = self.inventory[item].name
-                self.damage = self.inventory[item].damage
-                self.distance = self.inventory[item].cast_range
-                self.mana_cost = self.inventory[item].mana_cost
-            else:
-                pass
+        # if item in self.inventory.keys():
+        if isinstance(self.inventory[item], Health):
+            self.take_healing(self.inventory[item].health)
+        elif isinstance(self.inventory[item], Mana):
+            self.take_mana(self.inventory[item].mana)
+        elif isinstance(self.inventory[item], Weapon):
+            self.armed = self.inventory[item].name
+            self.damage = self.inventory[item].damage
+            self.mana_cost = 0
+            self.distance = 1
+        elif isinstance(self.inventory[item], Spell):
+            self.armed = self.inventory[item].name
+            self.damage = self.inventory[item].damage
+            self.distance = self.inventory[item].cast_range
+            self.mana_cost = self.inventory[item].mana_cost
         else:
             pass
+        # else:
+        #   pass
 
-    def collect(self, item):
+    def collect(self, item, *args):
         if isinstance(item, Health):
             self.inventory.update({'h': item})
+            return '{} is collected into inventory'.format(item.name)
         elif isinstance(item, Mana):
             self.inventory.update({'m': item})
+            return '{} is collected into inventory'.format(item.name)
         elif isinstance(item, Weapon):
             self.inventory.update({'w': item})
+            return '{} is collected into inventory'.format(item.name)
         elif isinstance(item, Spell):
             self.inventory.update({'s': item})
-        return '{} is collected into inventory'.format(item.name)
+            return '{} is collected into inventory'.format(item.name)
+        else:
+            return 'Nothing collectable.'
 
-    def drop(self,item):
+    def drop(self, item):
         if item in self.inventory.keys():
             if self.armed == self.inventory[item].name:
                 self.inventory.pop(item)
@@ -112,5 +121,5 @@ class Hero:
         else:
             pass
 
-    def inventory(self):
+    def open_inventory(self, *args):
         return self.inventory
